@@ -24,7 +24,7 @@ tasks.withType(JavaCompile) {
 }
 
 application {
-    mainClass = 'at.fhtw.Main'
+    mainClass = 'org.example.Main'
 }
 
 javafx {
