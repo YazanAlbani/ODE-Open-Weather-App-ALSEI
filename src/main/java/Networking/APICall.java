@@ -15,6 +15,13 @@ public class APICall {
 
     public APICall(String URLtoCall) {
         this.URLtoCall = URLtoCall;
+        URL tmpURLtoCast = null;
+        try {
+            tmpURLtoCast = new URL(this.URLtoCall);
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+        url = tmpURLtoCast;
     }
 
 
@@ -49,17 +56,18 @@ public class APICall {
         this.URLtoCall = URLtoCall;
     }
 
-    /*
+    /**
      *   Function used to read Data from a Reader and return it in a single String
      *   Will be called in startCall to increase readablitiy in this method
      */
-    private String readFromReader(Reader read){
+    private String readFromReader(BufferedReader read){
         StringBuilder inRead = new StringBuilder();
 
         int currentReadPoint;
         try {
             while ((currentReadPoint = read.read()) != -1) {
                 inRead.append((char) currentReadPoint);
+                System.out.println((char) currentReadPoint);
             }
         }catch( java.io.IOException e){
             e.printStackTrace();
@@ -70,7 +78,7 @@ public class APICall {
 
     /**
      * Method opens a connection to the current url and reads the data to the local textReadfromCall String
-     *
+     * Bad try catch cause both NUllpointer and IO Exception needs to be handeled, ToDO
      */
     public void startCall(){
 
@@ -79,24 +87,43 @@ public class APICall {
          */
         HttpsURLConnection connection = null;
         try {
+            System.out.println("Start opening Connection");
             connection = (HttpsURLConnection) url.openConnection();
+            connection.setRequestMethod("GET");
+            connection.setRequestProperty("Accept", "application/json");
+            connection.setConnectTimeout(5000);
+            connection.setReadTimeout(5000);
+            System.out.println("Connection Opened");
+            System.out.println(connection.getResponseCode());
+
+
+            try (
+                    InputStream streamIn = connection.getInputStream();
+
+
+            ){
+                System.out.println(connection.getResponseCode());
+                BufferedReader in = new BufferedReader(new InputStreamReader(streamIn));
+                textReadfromCall = readFromReader(in);
+                in.close();
+                connection.disconnect();
+
+            }catch(Exception e){
+                e.printStackTrace();
+                connection.disconnect();
+            }
+
         } catch (java.io.IOException e) {
             e.printStackTrace();
             textReadfromCall = "";
+            connection.disconnect();
         }
 
 
-        try (
-                InputStream streamIn = connection.getInputStream();
 
-        ){
-            BufferedReader reader = new BufferedReader(new InputStreamReader(streamIn));
-            textReadfromCall = readFromReader(reader);
-
-        }catch(java.io.IOException e){
-            e.printStackTrace();
-        }
     }
+
+
 
     public String getTextReadfromCall() {
         return textReadfromCall;

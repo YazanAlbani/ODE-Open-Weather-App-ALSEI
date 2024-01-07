@@ -42,7 +42,7 @@ public class APIgenerateURL {
      * default Constructor has a hardcoded request for Vienna
      */
     public APIgenerateURL() {
-        weatherURL = weatherURL + "https://api.openweathermap.org/data/2.5/weather?lat=48.20&lon=16.37&appid=7088a0d768cf5ec98b6cd82e32d7b1b2&units=metric";
+        weatherURL = "https://api.openweathermap.org/data/2.5/weather?lat=48.20&lon=16.37&appid=7088a0d768cf5ec98b6cd82e32d7b1b2&units=metric";
     }
     public String getURL(){
         return weatherURL;
