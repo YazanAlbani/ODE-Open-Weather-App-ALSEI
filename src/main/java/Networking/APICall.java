@@ -67,7 +67,6 @@ public class APICall {
         try {
             while ((currentReadPoint = read.read()) != -1) {
                 inRead.append((char) currentReadPoint);
-                System.out.println((char) currentReadPoint);
             }
         }catch( java.io.IOException e){
             e.printStackTrace();
