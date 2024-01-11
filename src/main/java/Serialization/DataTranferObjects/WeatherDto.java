@@ -1,6 +1,6 @@
-package WeatherData;
+package Serialization.DataTranferObjects;
 
-public class weather {
+public class WeatherDto {
     private int id;
     private String main;
     private String description;
@@ -38,13 +38,13 @@ public class weather {
         this.icon = icon;
     }
 
-    public weather(int id, String main, String description, String icon) {
+    public WeatherDto(int id, String main, String description, String icon) {
         this.id = id;
         this.main = main;
         this.description = description;
         this.icon = icon;
     }
 
-    public weather() {
+    public WeatherDto() {
     }
 }

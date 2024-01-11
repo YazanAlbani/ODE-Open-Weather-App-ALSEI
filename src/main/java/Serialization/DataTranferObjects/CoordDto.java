@@ -1,6 +1,6 @@
-package WeatherData;
+package Serialization.DataTranferObjects;
 
-public class coord {
+public class CoordDto {
     private int lon;
     private int lat;
 
@@ -20,12 +20,12 @@ public class coord {
         return lat;
     }
 
-    public coord(int lon, int lat) {
+    public CoordDto(int lon, int lat) {
         this.lon = lon;
         this.lat = lat;
     }
 
-    public coord() {
+    public CoordDto() {
     }
 
 }
