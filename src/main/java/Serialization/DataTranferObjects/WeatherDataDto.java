@@ -1,5 +1,4 @@
 package Serialization.DataTranferObjects;
-import Serialization.DataTranferObjects.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,34 +10,32 @@ import java.util.List;
  * Es wurde ein toSting eingefügt, zwecks debugging und Logging
  */
 public class WeatherDataDto {
-    private CloudsDto cloudsDto;
-    private List<WeatherDto> weatherDtoList = new ArrayList<>();
+    private CloudsDto clouds;
+    private List<WeatherDto> weather = new ArrayList<>();
     private String base;
-    private MainDto mainDto;
+    private MainDto main;
     private int visibility;
-    private WindDto windDto;
-    private CloudsDto couldsDto;
+    private WindDto wind;
 
     private int dt;
-    private SysDto sysDto;
+    private SysDto sys;
     private int timezone;
     private int id;
-    private String city;
+    private String name;
     private int cod;
 
-    public WeatherDataDto(CloudsDto cloudsDto, List<WeatherDto> weatherDtoList, String base, MainDto mainDto, int visibility, WindDto windDto, CloudsDto couldsDto, int dt, SysDto sysDto, int timezone, int id, String city, int cod) {
-        this.cloudsDto = cloudsDto;
-        this.weatherDtoList = weatherDtoList;
+    public WeatherDataDto(CloudsDto clouds, List<WeatherDto> weather, String base, MainDto main, int visibility, WindDto windDto, int dt, SysDto sys, int timezone, int id, String name, int cod) {
+        this.clouds = clouds;
+        this.weather = weather;
         this.base = base;
-        this.mainDto = mainDto;
+        this.main = main;
         this.visibility = visibility;
-        this.windDto = windDto;
-        this.couldsDto = couldsDto;
+        this.wind = windDto;
         this.dt = dt;
-        this.sysDto = sysDto;
+        this.sys = sys;
         this.timezone = timezone;
         this.id = id;
-        this.city = city;
+        this.name = name;
         this.cod = cod;
     }
 
@@ -49,20 +46,20 @@ public class WeatherDataDto {
     public WeatherDataDto() {
     }
 
-    public CloudsDto getCloudsDto() {
-        return cloudsDto;
+    public CloudsDto getClouds() {
+        return clouds;
     }
 
-    public void setCloudsDto(CloudsDto cloudsDto) {
-        this.cloudsDto = cloudsDto;
+    public void setClouds(CloudsDto clouds) {
+        this.clouds = clouds;
     }
 
-    public List<WeatherDto> getWeatherDtoList() {
-        return weatherDtoList;
+    public List<WeatherDto> getWeather() {
+        return weather;
     }
 
-    public void setWeatherDtoList(List<WeatherDto> weatherDtoList) {
-        this.weatherDtoList = weatherDtoList;
+    public void setWeather(List<WeatherDto> weather) {
+        this.weather = weather;
     }
 
     public String getBase() {
@@ -73,12 +70,12 @@ public class WeatherDataDto {
         this.base = base;
     }
 
-    public MainDto getMainDto() {
-        return mainDto;
+    public MainDto getMain() {
+        return main;
     }
 
-    public void setMainDto(MainDto mainDto) {
-        this.mainDto = mainDto;
+    public void setMain(MainDto main) {
+        this.main = main;
     }
 
     public int getVisibility() {
@@ -89,20 +86,12 @@ public class WeatherDataDto {
         this.visibility = visibility;
     }
 
-    public WindDto getWindDto() {
-        return windDto;
+    public WindDto getWind() {
+        return wind;
     }
 
-    public void setWindDto(WindDto windDto) {
-        this.windDto = windDto;
-    }
-
-    public CloudsDto getCouldsDto() {
-        return couldsDto;
-    }
-
-    public void setCouldsDto(CloudsDto couldsDto) {
-        this.couldsDto = couldsDto;
+    public void setWind(WindDto wind) {
+        this.wind = wind;
     }
 
     public int getDt() {
@@ -113,12 +102,12 @@ public class WeatherDataDto {
         this.dt = dt;
     }
 
-    public SysDto getSysDto() {
-        return sysDto;
+    public SysDto getSys() {
+        return sys;
     }
 
-    public void setSysDto(SysDto sysDto) {
-        this.sysDto = sysDto;
+    public void setSys(SysDto sys) {
+        this.sys = sys;
     }
 
     public int getTimezone() {
@@ -137,12 +126,12 @@ public class WeatherDataDto {
         this.id = id;
     }
 
-    public String getCity() {
-        return city;
+    public String getName() {
+        return name;
     }
 
-    public void setCity(String city) {
-        this.city = city;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public int getCod() {
@@ -159,18 +148,17 @@ public class WeatherDataDto {
      */
     public String toString() {
         return "WeatherDataDto{" +
-                "cloudsDto=" + cloudsDto +
-                ", weatherDtoList=" + weatherDtoList +
+                "cloudsDto=" + clouds +
+                ", weatherDtoList=" + weather +
                 ", base='" + base + '\'' +
-                ", mainDto=" + mainDto +
+                ", mainDto=" + main +
                 ", visibility=" + visibility +
-                ", windDto=" + windDto +
-                ", couldsDto=" + couldsDto +
+                ", windDto=" + wind +
                 ", dt=" + dt +
-                ", sysDto=" + sysDto +
+                ", sysDto=" + sys +
                 ", timezone=" + timezone +
                 ", id=" + id +
-                ", city='" + city + '\'' +
+                ", city='" + name + '\'' +
                 ", cod=" + cod +
                 '}';
     }
