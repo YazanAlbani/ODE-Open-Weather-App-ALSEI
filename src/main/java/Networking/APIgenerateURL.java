@@ -26,7 +26,8 @@ public class APIgenerateURL {
     private String unitFormat = "metric";
     private String apikey = "7088a0d768cf5ec98b6cd82e32d7b1b2";
     //URL weatherApiUrl = new URL();
-
+    private String forecastWeatherURL = "https://api.openweathermap.org/data/2.5/forecast/daily?";
+    private int amountForecastDays = 7;
 
     /**
      * This contstructor is used to take the parameters mentioned in the @param fields and creates String that can be returned by getURL
@@ -67,7 +68,52 @@ public class APIgenerateURL {
         this.unitFormat = unitFormat;
     }
 
+    public void setAmountForecastDays(int amountForecastDays) {
+        this.amountForecastDays = amountForecastDays;
+    }
+
+    public String APIgenerateForecastURL() {
+        return forecastWeatherURL  + "lat=" + latitude + "&lon=" + longitude + "&cnt=" + amountForecastDays + "&appid=" + apikey + "&units=" + unitFormat;
+    }
     public void setApikey(String apikey) {
         this.apikey = apikey;
+    }
+
+
+    public void setCoordinatesVienna(){
+        this.setLatitude(48.20);
+        this.setLongitude(16.37);
+    }
+    public void setCoordinatesLinz(){
+        this.setLatitude(48.31);
+        this.setLongitude(14.28);
+    }
+    public void setCoordinatesSalzburg(){
+        this.setLatitude(47.81);
+        this.setLongitude(13.03);
+    }
+    public void setCoordinatesGraz(){
+        this.setLatitude(47.07);
+        this.setLongitude(15.42);
+    }
+    public void setCoordinatesKlagenfurth(){
+        this.setLatitude(46.62);
+        this.setLongitude(14.31);
+    }
+    public void setCoordinatesBregenz(){
+        this.setLatitude(47.50);
+        this.setLongitude(9.74);
+    }
+    public void setCoordinatesStPoelten(){
+        this.setLatitude(48.22);
+        this.setLongitude(15.61);
+    }
+    public void setCoordinatesEisenstadt(){
+        this.setLatitude(47.84);
+        this.setLongitude(16.52);
+    }
+    public void setCoordinatesInnsbruck(){
+        this.setLatitude(47.26);
+        this.setLongitude(11.39);
     }
 }

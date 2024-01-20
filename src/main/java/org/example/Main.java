@@ -35,6 +35,5 @@ public class Main {
         WeatherDataDto apiWeatherObjectData = jsonParser.parse();
         System.out.println();
         System.out.println(apiWeatherObjectData.toString());
-
     }
 }

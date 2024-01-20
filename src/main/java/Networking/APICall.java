@@ -88,12 +88,13 @@ public class APICall {
         try {
             System.out.println("Start opening Connection");
             connection = (HttpsURLConnection) url.openConnection();
+            //keine Ahnung ob man die unteren 4 Zeilen mit den Parametern für die Verbindung wirklich braucht, schanden tuts nicht, es geht mit denen auf jeden Fall
             connection.setRequestMethod("GET");
             connection.setRequestProperty("Accept", "application/json");
             connection.setConnectTimeout(5000);
             connection.setReadTimeout(5000);
-            System.out.println("Connection Opened");
-            System.out.println(connection.getResponseCode());
+            //System.out.println("Connection Opened");
+            //System.out.println(connection.getResponseCode());
 
 
             try (
