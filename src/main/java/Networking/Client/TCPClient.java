@@ -8,7 +8,7 @@ import java.net.Socket;
 public class TCPClient {
     private Socket clientSocket;
     private int port;
-    private  DataInputStream streamIn;
+    private DataInputStream streamIn;
     private DataOutputStream streamOut;
 
 
@@ -46,4 +46,5 @@ public class TCPClient {
     public TCPClient() {
         this.port = 48333;
     }
+
 }

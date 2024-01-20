@@ -31,9 +31,11 @@ public class Main {
 
 
         JSONParser jsonParser = new JSONParser(textFromApi);
-
         WeatherDataDto apiWeatherObjectData = jsonParser.parse();
+
         System.out.println();
         System.out.println(apiWeatherObjectData.toString());
+
+
     }
 }

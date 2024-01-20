@@ -8,7 +8,7 @@ import java.net.*;
 public class TCPServer {
 
     private ServerSocket serverSocket;
-    private Socket socke;
+    private Socket socket;
     private int port;
 
     private String dataToSend;
@@ -31,7 +31,8 @@ public class TCPServer {
 
     public void startConnection (){
         try {
-            socke = serverSocket.accept();
+            serverSocket = new ServerSocket(port);
+            socket = serverSocket.accept();
 
         } catch (IOException e){
             e.printStackTrace();
@@ -39,7 +40,7 @@ public class TCPServer {
     }
     public void closeConnection(){
         try{
-            socke.close();
+            socket.close();
         }catch (IOException e){
             e.printStackTrace();
         }
@@ -47,14 +48,14 @@ public class TCPServer {
 
     public void runClientHandler(){
 
-        try(DataInputStream inputStream = new DataInputStream(socke.getInputStream());
-            DataOutputStream outputStream = new DataOutputStream(socke.getOutputStream()); ){
-            Thread clientThread = new ClientHandler(socke, inputStream, outputStream);
+        try(DataInputStream inputStream = new DataInputStream(socket.getInputStream());
+            DataOutputStream outputStream = new DataOutputStream(socket.getOutputStream()); ){
+            Thread clientThread = new ClientHandler(socket, inputStream, outputStream);
             clientThread.start();
 
         }catch(IOException e){
             try {
-                socke.close();
+                socket.close();
             } catch (IOException ex) {
                 ex.printStackTrace();
             }

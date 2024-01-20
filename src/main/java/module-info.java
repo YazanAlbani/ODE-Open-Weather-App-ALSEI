@@ -8,6 +8,7 @@ module ODE.Open.Weather.App.ALSEI.main {
     requires com.fasterxml.jackson.databind;
 
     opens org.example;
+
     /**
      *
      * Troubleshooting:
@@ -19,6 +20,8 @@ module ODE.Open.Weather.App.ALSEI.main {
      *
      * Try fixing it by following https://stackoverflow.com/questions/76552717/com-fasterxml-jackson-databind-exc-invaliddefinitionexception-invalid-type-defin
      */
+
     opens Serialization to com.fasterxml.jackson.databind;
     opens Serialization.DataTranferObjects to com.fasterxml.jackson.databind;
+
 }
