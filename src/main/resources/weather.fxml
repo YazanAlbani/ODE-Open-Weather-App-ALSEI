@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="1315.0" style="-fx-background-color: #000;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <HBox prefHeight="245.0" prefWidth="1214.0">
+         <VBox.margin>
+            <Insets left="50.0" right="50.0" top="50.0" />
+         </VBox.margin>
+         <children>
+            <VBox prefHeight="250.0" prefWidth="406.0">
+               <children>
+                  <HBox prefHeight="142.0" prefWidth="0.0">
+                     <children>
+                        <Label alignment="BOTTOM_LEFT" prefHeight="142.0" prefWidth="234.0" text="10:09" textFill="WHITE">
+                           <font>
+                              <Font size="96.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="BOTTOM_LEFT" layoutX="10.0" layoutY="10.0" prefHeight="142.0" prefWidth="174.0" text="PM" textFill="WHITE">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <Label prefHeight="75.0" prefWidth="406.0" text="Monday, 28 December 2020" textFill="WHITE">
+                     <font>
+                        <Font size="30.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <Pane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
+            <VBox alignment="CENTER_LEFT" prefHeight="320.0" prefWidth="200.0">
+               <children>
+                  <Label prefHeight="75.0" prefWidth="406.0" text="Place" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="40.0" />
+                     </font>
+                  </Label>
+                  <Label prefHeight="75.0" prefWidth="406.0" text="City" textFill="WHITE">
+                     <font>
+                        <Font size="30.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <Pane prefHeight="175.0" prefWidth="1315.0" VBox.vgrow="ALWAYS" />
+      <HBox prefHeight="320.0" prefWidth="200.0" spacing="60.0" styleClass="bottom-container" stylesheets="@style.css">
+         <children>
+            <HBox alignment="CENTER" prefHeight="306.0" prefWidth="310.0">
+               <children>
+                  <ImageView fitHeight="110.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/sunny.gif" />
+                     </image>
+                  </ImageView>
+                  <VBox alignment="CENTER" prefHeight="306.0" prefWidth="177.0" spacing="20.0" stylesheets="@style.css">
+                     <children>
+                        <Label alignment="CENTER" prefHeight="40.0" prefWidth="105.0" styleClass="days-background" stylesheets="@style.css" text="Today" />
+                        <Label alignment="CENTER" prefHeight="142.0" prefWidth="234.0" text="12°" textFill="WHITE">
+                           <font>
+                              <Font size="72.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <VBox alignment="CENTER" prefHeight="306.0" prefWidth="177.0" spacing="20.0" stylesheets="@style.css">
+               <children>
+                  <Label alignment="CENTER" prefHeight="40.0" prefWidth="105.0" styleClass="days-background" stylesheets="@style.css" text="Tuesday" />
+                  <Label alignment="CENTER" prefHeight="142.0" prefWidth="234.0" text="12°" textFill="WHITE">
+                     <font>
+                        <Font size="72.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="306.0" prefWidth="177.0" spacing="20.0" stylesheets="@style.css">
+               <children>
+                  <Label alignment="CENTER" prefHeight="40.0" prefWidth="105.0" styleClass="days-background" stylesheets="@style.css" text="Wednsday" />
+                  <Label alignment="CENTER" prefHeight="142.0" prefWidth="234.0" text="12°" textFill="WHITE">
+                     <font>
+                        <Font size="72.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="306.0" prefWidth="177.0" spacing="20.0" stylesheets="@style.css">
+               <children>
+                  <Label alignment="CENTER" prefHeight="40.0" prefWidth="105.0" styleClass="days-background" stylesheets="@style.css" text="Thursday" />
+                  <Label alignment="CENTER" prefHeight="142.0" prefWidth="234.0" text="12°" textFill="WHITE">
+                     <font>
+                        <Font size="72.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="306.0" prefWidth="177.0" spacing="20.0" stylesheets="@style.css">
+               <children>
+                  <Label alignment="CENTER" prefHeight="40.0" prefWidth="105.0" styleClass="days-background" stylesheets="@style.css" text="Friday" />
+                  <Label alignment="CENTER" prefHeight="142.0" prefWidth="234.0" text="12°" textFill="WHITE">
+                     <font>
+                        <Font size="72.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </children>
+</VBox>

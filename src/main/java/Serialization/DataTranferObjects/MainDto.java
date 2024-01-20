@@ -68,4 +68,16 @@ public class MainDto {
     public void setHumidity(int humidity) {
         this.humidity = humidity;
     }
+
+    @Override
+    public String toString() {
+        return "MainDto{" +
+                 temp +
+                "," + feels_like +
+                "," + temp_min +
+                "," + temp_max +
+                "," + pressure +
+                "," + humidity +
+                '}';
+    }
 }
