@@ -42,6 +42,11 @@ public class APIgenerateURL {
         this.weatherURL = this.weatherURL  + "lat=" + this.latitude + "&lon=" + this.longitude +  "&appid=" + apikey + "&units=" + unitFormat;
     }
 
+    public String getForecastURL() {
+        lastCallForecast = true;
+        return forecastWeatherURL  + "lat=" + latitude + "&lon=" + longitude + "&appid=" + apikey + "&units=" + unitFormat;
+    }
+
     /**
      * default Constructor has a hardcoded request for Vienna
      */
@@ -78,7 +83,6 @@ public class APIgenerateURL {
     }
 
     public String APIgenerateForecastURL() {
-        lastCallForecast = true;
         return forecastWeatherURL  + "lat=" + latitude + "&lon=" + longitude + "&cnt=" + amountForecastDays + "&appid=" + apikey + "&units=" + unitFormat;
     }
     public void setApikey(String apikey) {

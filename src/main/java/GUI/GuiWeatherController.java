@@ -8,6 +8,7 @@ import Serialization.DataTranferObjects.WeatherForecastDto;
 import Serialization.JSONParser;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -47,14 +48,60 @@ public class GuiWeatherController {
     public ChoiceBox choiceBoxSetCity;
 
     public void initCityDropDown() {
-        choiceBoxSetCity.getItems().add("Vienna");
-        choiceBoxSetCity.getItems().add("St Poelten");
-        choiceBoxSetCity.getItems().add("Eisenstadt");
-        choiceBoxSetCity.getItems().add("Linz");
-        choiceBoxSetCity.getItems().add("Graz");
-        choiceBoxSetCity.getItems().add("Salzburg");
-        choiceBoxSetCity.getItems().add("Innsbruck");
-        choiceBoxSetCity.getItems().add("Bregenz");
+
+        choiceBoxSetCity.getItems().addAll(
+                "Vienna", "St Poelten", "Eisenstadt", "Linz",
+                "Graz", "Salzburg", "Innsbruck", "Bregenz"
+        );
+        // Add an EventHandler for the city selection
+        choiceBoxSetCity.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                handleCitySelection(); // Call a method to handle city selection
+            }
+        });
+
+    }
+    private void handleCitySelection() {
+        String selectedCity = (String) choiceBoxSetCity.getValue();
+
+        APIgenerateURL apIgenerateURL = new APIgenerateURL();
+
+        double latitude = 0.0;
+        double longitude = 0.0;
+
+        // Set coordinates based on the selected city
+        switch (selectedCity) {
+            case "Vienna":
+                apiURL.setCoordinatesVienna();
+                break;
+            case "Linz":
+                apiURL.setCoordinatesLinz();
+                break;
+            case "Salzburg":
+                apiURL.setCoordinatesSalzburg();
+                break;
+            case "Graz":
+                apiURL.setCoordinatesGraz();
+                break;
+            case "Klagenfurt":
+                apiURL.setCoordinatesKlagenfurth();
+                break;
+            case "Bregenz":
+                apiURL.setCoordinatesBregenz();
+                break;
+            case "St Poelten":
+                apiURL.setCoordinatesStPoelten();
+                break;
+            case "Eisenstadt":
+                apiURL.setCoordinatesEisenstadt();
+                break;
+            case "Innsbruck":
+                apiURL.setCoordinatesInnsbruck();
+                break;
+            default:
+                break;
+        }
     }
     @FXML
     public void setButton(ActionEvent event) {
