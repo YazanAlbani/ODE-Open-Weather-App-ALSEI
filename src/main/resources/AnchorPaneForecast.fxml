@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane fx:id="forecastPane" layoutY="-4.0" prefHeight="619.0" prefWidth="830.0" styleClass="anchor" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.GuiWeatherController">
+    <stylesheets>
+        <URL value="@style.css" />
+    </stylesheets>
+        <ChoiceBox fx:id="choiceBoxSetCityForecast" layoutX="0" layoutY="0" prefHeight="17.0" prefWidth="100" value="Cities">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <!-- Adding to the Choice Box will be done in the code with  choiceBoxSetCity.getItems().add("Stadt");-->
+                </FXCollections>
+            </items>
+        </ChoiceBox>
+        <Button fx:id="setButtonForecast" layoutX="30.0" layoutY="580.0" mnemonicParsing="false" text="Set" />
+        <Button fx:id="changeViewForecast" layoutX="750.0" layoutY="580.0" mnemonicParsing="false" text="Change View" />
+        <TextArea fx:id="forecastTextField" layoutX="14.0" layoutY="31.0" prefHeight="540.0" prefWidth="850.0" />
+</AnchorPane>

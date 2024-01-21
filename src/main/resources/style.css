@@ -1,0 +1,11 @@
+.bottom-container{
+    -fx-background-color: rgba(44, 74 ,102, 0.9);
+}
+
+.days-background{
+    -fx-background-color: #43789A;
+    -fx-background-radius: 50;
+}
+.anchor {
+    -fx-background-image:url("images/background.jpg");
+}
