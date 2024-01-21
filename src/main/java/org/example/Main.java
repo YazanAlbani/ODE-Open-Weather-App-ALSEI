@@ -5,62 +5,36 @@ import Serialization.*;
 import Serialization.DataTranferObjects.WeatherDataDto;
 import Serialization.DataTranferObjects.WeatherDto;
 import Serialization.DataTranferObjects.WeatherForecastDto;
+import GUI.*;
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.stage.Stage;
 
-public class Main {
-    public static void main(String[] args) {
+import java.io.IOException;
 
-        /**
-         * Erster Sample Call der API
-         * Hier wird die URL generiert und der Call ausgeführt
-         * in den Prints wird die URL ausgegeben und der Rückgabewert der API als String
-         */
-        APIgenerateURL generateURL = new APIgenerateURL();
-
-        /*APICall firstCall = new APICall(generateURL.getURL());
-        String textFromApi;
-        firstCall.startCall();
-
-        textFromApi = firstCall.getTextReadfromCall();
-        System.out.println("URL is: " + firstCall.getCurrentURL());
-        System.out.println(textFromApi);*/
-
-
-        APICall firstCall = new APICall(generateURL.getForecastURL());
-        String textFromApi;
-        firstCall.startCall();
-
-        textFromApi = firstCall.getTextReadfromCall();
-        System.out.println("URL is: " + firstCall.getCurrentURL());
-        System.out.println(textFromApi);
-
-
-        /**
-         * Hier wird das Parsen der Daten in die Objekte (Dtos -> Data Transfer Objekts) durchgeführt
-         * Problem: com.fasterxml.jackson.databind.exc.InvalidDefinitionException: Failed to call `setAccess()` on Constructor 'Serialization.DataTranferObjects.WeatherDataDto'
-         *
-         * Ich probiers mal mit https://stackoverflow.com/questions/76552717/com-fasterxml-jackson-databind-exc-invaliddefinitionexception-invalid-type-defin zu fixen
-         *
-         */
-        /*
-        if(generateURL.isLastCallForecast()){
-            JSONParser jsonParser = new JSONParser(textFromApi);
-            WeatherForecastDto apiWeatherForecastDto = jsonParser.parseForecast();
-            System.out.println();
-            System.out.println(apiWeatherForecastDto.toString());
-
-
-        }
-         else{
-            JSONParser jsonParser = new JSONParser(textFromApi);
-
-            WeatherDataDto apiWeatherObjectData = jsonParser.parse();
-            System.out.println();
-            System.out.println(apiWeatherObjectData.toString());
-        }*/
-        generateURL = new APIgenerateURL();
-        WeatherDataDto weatherDataDto = new WeatherDataDto();
-        weatherDataDto = GUIApiCalls.runAPICall(weatherDataDto, generateURL);
-        System.out.println(weatherDataDto.getMain().toString());
-
+public class Main extends Application {
+    /**
+     * entry point for the JavaFX
+     * Init the main stages and load the FXML file
+     * displays the GUI
+     *
+     * @param primaryStage the primary stage for this application, onto which
+     * the application scene can be set.
+     * Applications may create other stages, if needed, but they will not be
+     * primary stages.
+     * @throws IOException If an error occurs
+     */
+    public void start(Stage primaryStage) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("sample.fxml"));
+        Parent root = loader.load();
+        primaryStage.setTitle("Weather Report");
+        Image image = new Image("images/background.jpg");
+        ImageView mv = new ImageView(image);
+        primaryStage.setScene(new Scene(root));
+        primaryStage.show();
     }
 }
