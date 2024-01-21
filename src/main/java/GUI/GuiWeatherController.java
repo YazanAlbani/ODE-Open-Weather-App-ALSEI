@@ -16,6 +16,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -70,7 +71,7 @@ public class GuiWeatherController {
     @FXML
     public  Text feelsLikeText;
     @FXML
-    public ImageView imageView;
+    public ImageView img;
 
 
     @FXML
@@ -145,10 +146,14 @@ public class GuiWeatherController {
                     api = GUIApiCalls.runAPICall(api, apiURL);
                     System.out.println(apiURL.getURL());
                     System.out.println(api.getMain().toString());
-                    tempText.setText(String.valueOf(api.getMain().getTemp()) + "°");
-                    windSpeedText.setText(String.valueOf(api.getWind().getSpeed())+ " kmh");
-                    humidityText.setText(String.valueOf(api.getMain().getHumidity()) + " RH");
-                    feelsLikeText.setText(String.valueOf(api.getMain().getFeels_like()) + "°");
+                    tempText.setText(api.getMain().getTemp() + "°");
+                    windSpeedText.setText(api.getWind().getSpeed() + " kmh");
+                    humidityText.setText(api.getMain().getHumidity() + " RH");
+                    feelsLikeText.setText(api.getMain().getFeels_like() + "°");
+
+                    String icon = ImageHandler.getImage(api);
+                    img.setImage(new Image(icon));
+
                 }
             });
 
