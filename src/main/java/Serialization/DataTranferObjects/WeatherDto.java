@@ -47,4 +47,12 @@ public class WeatherDto {
 
     public WeatherDto() {
     }
+
+    @Override
+    public String toString() {
+        return
+                "id=" + id +
+                ", main='" + main + '\'' +
+                ", description='" + description + '\'';
+    }
 }

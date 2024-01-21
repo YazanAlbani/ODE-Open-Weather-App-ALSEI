@@ -18,6 +18,10 @@ import static java.lang.reflect.Array.get;
 
 
 public class FileIO {
+
+        /**
+         * @brief static meth
+         */
         public static void initToCSV(){
                 String packagePath = "ODE-Open-Weather-App-ALSEI/src/main/java/WeatherData";
                 String csvFileName = "WeatherData.csv";

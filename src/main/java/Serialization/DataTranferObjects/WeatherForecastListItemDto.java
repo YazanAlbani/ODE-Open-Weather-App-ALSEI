@@ -89,16 +89,22 @@ public class WeatherForecastListItemDto {
 
     @Override
     public String toString() {
-        return "WeatherForecastListItemDto{" +
-                "dt=" + dt +
+
+        String listString = "";
+
+        for(WeatherDto  dtoItem : weather){
+            listString = listString + dtoItem.toString();
+        }
+
+        return  "dt=" + dt +
                 ", main=" + main.toStringAll() +
-                ", weather=" + weather.toString() +
+                ", weather=" + listString +
                 ", clouds=" + clouds.toString() +
                 ", wind=" + wind.toString() +
-                ", sys=" + sys.toString() +
+                ", sys=" + sys.toStringGUI() +
                 ", visibility=" + visibility +
                 ", pop=" + pop +
                 ", dt_text='" + dt_text + '\'' +
-                '}';
+                '}' + "\n";
     }
 }
