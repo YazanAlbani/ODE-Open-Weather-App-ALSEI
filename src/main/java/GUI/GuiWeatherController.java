@@ -4,6 +4,7 @@ import Networking.APICall;
 import Networking.APIgenerateURL;
 import Serialization.DataTranferObjects.MainDto;
 import Serialization.DataTranferObjects.WeatherDataDto;
+import Serialization.DataTranferObjects.WeatherForecastDto;
 import Serialization.JSONParser;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
@@ -18,27 +19,22 @@ import javafx.stage.Stage;
 import javax.xml.namespace.QName;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
 import static javafx.application.Application.launch;
 public class GuiWeatherController {
 
-    WeatherDataDto api;
+    ExecutorService threadPool = Executors.newWorkStealingPool();
+    WeatherDataDto api = new WeatherDataDto();
+    WeatherForecastDto apiWeatherForecastData = new WeatherForecastDto();
+    APIgenerateURL apiURL = new APIgenerateURL();
+
     @FXML
     public void initialize() {
 
         initCityDropDown();
-
-        System.out.println("second");
-        APIgenerateURL generateURL = new APIgenerateURL();
-        APICall firstCall = new APICall(generateURL.getURL());
-        String textFromApi;
-        firstCall.startCall();
-
-        textFromApi =firstCall.getTextReadfromCall();
-        System.out.println("URL is: " +firstCall.getCurrentURL());
-        System.out.println(textFromApi);
-        JSONParser jsonParser = new JSONParser(textFromApi);
-        api = jsonParser.parse();
-
+        GUIApiCalls.runAPICall(api, apiURL);
     }
 
     @FXML
@@ -62,8 +58,24 @@ public class GuiWeatherController {
     }
     @FXML
     public void setButton(ActionEvent event) {
-        tempText.setText(String.valueOf(api.getMain().getTemp()));
-        //labelTempText.setText("Byeeee");
+        try {
+            threadPool.execute(new Runnable() {
+
+                public void run() {
+                    GUIApiCalls.runAPICall(api, apiURL);
+                    tempText.setText(String.valueOf(api.getMain().getTemp()));
+                }
+            });
+
+            //labelTempText.setText("Byeeee");
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+
     }
 
 }
+
+
+
+

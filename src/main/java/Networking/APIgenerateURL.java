@@ -28,7 +28,7 @@ public class APIgenerateURL {
     //URL weatherApiUrl = new URL();
     private String forecastWeatherURL = "https://api.openweathermap.org/data/2.5/forecast/daily?";
     private int amountForecastDays = 7;
-
+    private boolean lastCallForecast = false;
     /**
      * This contstructor is used to take the parameters mentioned in the @param fields and creates String that can be returned by getURL
      * @param latitude
@@ -48,7 +48,12 @@ public class APIgenerateURL {
     public APIgenerateURL() {
         weatherURL = "https://api.openweathermap.org/data/2.5/weather?lat=48.20&lon=16.37&appid=7088a0d768cf5ec98b6cd82e32d7b1b2&units=metric";
     }
+    public void genereateURL(){
+        weatherURL = weatherURL  + "lat=" + latitude + "&lon=" + longitude +  "&appid=" + apikey + "&units=" + unitFormat;
+    }
+
     public String getURL(){
+        lastCallForecast = true;
         return weatherURL;
     }
 
@@ -73,10 +78,15 @@ public class APIgenerateURL {
     }
 
     public String APIgenerateForecastURL() {
+        lastCallForecast = true;
         return forecastWeatherURL  + "lat=" + latitude + "&lon=" + longitude + "&cnt=" + amountForecastDays + "&appid=" + apikey + "&units=" + unitFormat;
     }
     public void setApikey(String apikey) {
         this.apikey = apikey;
+    }
+
+    public boolean isLastCallForecast() {
+        return lastCallForecast;
     }
 
 
