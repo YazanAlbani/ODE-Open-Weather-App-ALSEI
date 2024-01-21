@@ -18,6 +18,9 @@ import static java.lang.reflect.Array.get;
 
 
 public class FileIO {
+        /**
+         * Initializes the CSV file with column headers if the file does not exist.
+         */
         public static void initToCSV(){
                 String packagePath = "ODE-Open-Weather-App-ALSEI/src/main/java/WeatherData";
                 String csvFileName = "WeatherData.csv";
@@ -28,17 +31,14 @@ public class FileIO {
                 } catch (IOException e) {
                         e.printStackTrace();
                 }
-
-                /*try (CSVWriter csvWriter = new CSVWriter(new FileWriter(csvFileName))){
-                        csvWriter.add("Temperature,Feels Like,Min Temperature,Max Temperature,Pressure,Humidity,TimeofCall\n");
-                        csvWriter.add(String.format("%s\n", weatherData.getMain().toString() + "," + java.time.LocalTime.now().toString()));
-                        csvWriter.close();
-                } catch (IOException e) {
-                        e.printStackTrace();
-                }*/
         }
 
 
+        /**
+         * Writes weather data to the CSV file.
+         *
+         * @param weatherData The WeatherDataDto object containing weather information to be written.
+         */
         public static void writeToCsv(WeatherDataDto weatherData){
                 String packagePath = "ODE-Open-Weather-App-ALSEI/src/main/java/WeatherData";
                 String csvFileName = "WeatherData.csv";
@@ -51,13 +51,6 @@ public class FileIO {
                         e.printStackTrace();
                 }
 
-                /*try (CSVWriter csvWriter = new CSVWriter(new FileWriter(csvFileName))){
-                        csvWriter.add("Temperature,Feels Like,Min Temperature,Max Temperature,Pressure,Humidity,TimeofCall\n");
-                        csvWriter.add(String.format("%s\n", weatherData.getMain().toString() + "," + java.time.LocalTime.now().toString()));
-                        csvWriter.close();
-                } catch (IOException e) {
-                        e.printStackTrace();
-                }*/
         }
 
 }
