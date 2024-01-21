@@ -1,5 +1,6 @@
 package GUI;
 
+import File.IO.FileIO;
 import Networking.APICall;
 import Networking.APIgenerateURL;
 import Serialization.DataTranferObjects.MainDto;
@@ -42,7 +43,7 @@ public class GuiWeatherController {
             }
         });
 
-
+        FileIO.initToCSV();
         initCityDropDown();
         GUIApiCalls.runAPICall(api, apiURL);
 
@@ -151,7 +152,6 @@ public class GuiWeatherController {
                 }
             });
 
-            System.out.println(api.getMain().toString());
 
 
         }catch(Exception e){

@@ -6,6 +6,7 @@ module ODE.Open.Weather.App.ALSEI.main {
     requires javafx.fxml;
     requires java.desktop;
     requires com.fasterxml.jackson.databind;
+    requires com.opencsv;
 
     opens org.example;
     /**

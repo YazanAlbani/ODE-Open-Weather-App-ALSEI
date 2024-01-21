@@ -1,5 +1,6 @@
 package GUI;
 
+import File.IO.FileIO;
 import Networking.APICall;
 import Networking.APIgenerateURL;
 import Serialization.DataTranferObjects.WeatherDataDto;
@@ -26,9 +27,11 @@ public class GUIApiCalls {
 
 
         apiWeatherObjectData = jsonParser.parse();
-        System.out.println();
-        System.out.println("in API Call GUI Class");
-        System.out.println(apiWeatherObjectData.getMain().toString());
+        //System.out.println();
+        //System.out.println("in API Call GUI Class");
+        //System.out.println(apiWeatherObjectData.getMain().toString());
+
+        FileIO.writeToCsv(apiWeatherObjectData);
         return apiWeatherObjectData;
     }
 
