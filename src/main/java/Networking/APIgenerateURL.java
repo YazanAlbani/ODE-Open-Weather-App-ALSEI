@@ -116,4 +116,7 @@ public class APIgenerateURL {
         this.setLatitude(47.26);
         this.setLongitude(11.39);
     }
+    public void genereateURL(){
+        weatherURL = weatherURL  + "lat=" + latitude + "&lon=" + longitude +  "&appid=" + apikey + "&units=" + unitFormat;
+    }
 }
