@@ -4,6 +4,7 @@ public class WindDto {
     private float speed;
     private int deg;
 
+    private float gust;
     public WindDto(float speed, int deg) {
         this.speed = speed;
         this.deg = deg;

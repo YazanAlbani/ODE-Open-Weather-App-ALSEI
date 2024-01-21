@@ -6,6 +6,7 @@ public class SysDto {
     private String country;
     private int sunrise;
     private int sunset;
+    private String pod;
 
     public SysDto(int type, int id, String country, int sunrise, int sunset) {
         this.type = type;
@@ -56,5 +57,13 @@ public class SysDto {
 
     public void setSunset(int sunset) {
         this.sunset = sunset;
+    }
+
+    public String getPod() {
+        return pod;
+    }
+
+    public void setPod(String pod) {
+        this.pod = pod;
     }
 }

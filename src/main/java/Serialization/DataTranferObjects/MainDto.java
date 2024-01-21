@@ -7,6 +7,9 @@ public class MainDto {
     private float temp_max;
     private int pressure;
     private int humidity;
+    private int sea_level;
+    private int grnd_level;
+    private float temp_kf;
 
     public MainDto(float temp, float feels_like, float temp_min, float temp_max, int pressure, int humidity) {
         this.temp = temp;
@@ -69,6 +72,30 @@ public class MainDto {
         this.humidity = humidity;
     }
 
+    public int getSea_level() {
+        return sea_level;
+    }
+
+    public void setSea_level(int sea_level) {
+        this.sea_level = sea_level;
+    }
+
+    public int getGrnd_level() {
+        return grnd_level;
+    }
+
+    public void setGrnd_level(int grnd_level) {
+        this.grnd_level = grnd_level;
+    }
+
+    public float getTemp_kf() {
+        return temp_kf;
+    }
+
+    public void setTemp_kf(float temp_kf) {
+        this.temp_kf = temp_kf;
+    }
+
     @Override
     public String toString() {
         return "MainDto{" +
@@ -78,6 +105,20 @@ public class MainDto {
                 "," + temp_max +
                 "," + pressure +
                 "," + humidity +
+                '}';
+    }
+
+    public String toStringAll() {
+        return "MainDto{" +
+                "" + temp +
+                "," + feels_like +
+                "," + temp_min +
+                "," + temp_max +
+                "," + pressure +
+                "," + humidity +
+                "," + sea_level +
+                "," + grnd_level +
+                "," + temp_kf +
                 '}';
     }
 }

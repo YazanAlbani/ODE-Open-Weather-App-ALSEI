@@ -20,13 +20,14 @@ public class APIgenerateURL {
      *  There are default values to reduce issues with URL building in case of incomplete datainput
      */
 
+    private boolean lastCallForecast = false;
     private String weatherURL = "https://api.openweathermap.org/data/2.5/weather?";
     private double latitude = 48.20;
     private double longitude = 16.37;
     private String unitFormat = "metric";
     private String apikey = "7088a0d768cf5ec98b6cd82e32d7b1b2";
     //URL weatherApiUrl = new URL();
-    private String forecastWeatherURL = "https://api.openweathermap.org/data/2.5/forecast/daily?";
+    private String forecastWeatherURL = "https://api.openweathermap.org/data/2.5/forecast?";
     private int amountForecastDays = 7;
 
     /**
@@ -49,7 +50,12 @@ public class APIgenerateURL {
         weatherURL = "https://api.openweathermap.org/data/2.5/weather?lat=48.20&lon=16.37&appid=7088a0d768cf5ec98b6cd82e32d7b1b2&units=metric";
     }
     public String getURL(){
+        lastCallForecast = true;
         return weatherURL;
+    }
+
+    public void genereateURL(){
+        weatherURL = weatherURL  + "lat=" + latitude + "&lon=" + longitude +  "&appid=" + apikey + "&units=" + unitFormat;
     }
 
     public void setWeatherURL(String weatherURL) {
@@ -68,17 +74,23 @@ public class APIgenerateURL {
         this.unitFormat = unitFormat;
     }
 
+
+    //Nur mir erweiterter Subscription möglich
     public void setAmountForecastDays(int amountForecastDays) {
         this.amountForecastDays = amountForecastDays;
     }
 
-    public String APIgenerateForecastURL() {
-        return forecastWeatherURL  + "lat=" + latitude + "&lon=" + longitude + "&cnt=" + amountForecastDays + "&appid=" + apikey + "&units=" + unitFormat;
+    public String getForecastURL() {
+        lastCallForecast = true;
+        return forecastWeatherURL  + "lat=" + latitude + "&lon=" + longitude + "&appid=" + apikey + "&units=" + unitFormat;
     }
     public void setApikey(String apikey) {
         this.apikey = apikey;
     }
 
+    public boolean isLastCallForecast() {
+        return lastCallForecast;
+    }
 
     public void setCoordinatesVienna(){
         this.setLatitude(48.20);
@@ -116,4 +128,5 @@ public class APIgenerateURL {
         this.setLatitude(47.26);
         this.setLongitude(11.39);
     }
+
 }
