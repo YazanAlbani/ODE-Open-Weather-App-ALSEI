@@ -33,7 +33,12 @@ public class GuiWeatherController {
 
     @FXML
     public void initialize() {
-
+        setButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                setButton(event);
+            }
+        });
         initCityDropDown();
         GUIApiCalls.runAPICall(api, apiURL);
     }
@@ -105,17 +110,21 @@ public class GuiWeatherController {
     }
     @FXML
     public void setButton(ActionEvent event) {
+        System.out.println("Button Event started");
+        setButton.setText("Hallo");
         try {
             threadPool.execute(new Runnable() {
 
                 public void run() {
                     GUIApiCalls.runAPICall(api, apiURL);
                     tempText.setText(String.valueOf(api.getMain().getTemp()));
+                    System.out.println(api.getMain().getTemp());
                 }
             });
 
             //labelTempText.setText("Byeeee");
         }catch(Exception e){
+            System.out.println("Error multithread");
             e.printStackTrace();
         }
 
