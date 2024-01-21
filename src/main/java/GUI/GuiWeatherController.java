@@ -131,14 +131,11 @@ public class GuiWeatherController {
     public TextArea forecastTextField;
     @FXML
     public AnchorPane forecastPane;
-    ExecutorService threadPool = Executors.newWorkStealingPool();
 
-    WeatherForecastDto apiWeatherForecastData = new WeatherForecastDto();
-    WeatherDataDto api = new WeatherDataDto();
+
+
     WeatherForecastDto apiForecast = new WeatherForecastDto();
-    APIgenerateURL apiURL = new APIgenerateURL();
 
-    private boolean isForecast = false;
 
 
     @FXML
@@ -362,7 +359,7 @@ public class GuiWeatherController {
         feelsLikeText.setText(String.valueOf(api.getMain().getFeels_like()) + "°");
     }
     public void switchPanetoForecast (){
-        isForecast = true;
+
         FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("AnchorPaneForecast.fxml"));
 
         try {

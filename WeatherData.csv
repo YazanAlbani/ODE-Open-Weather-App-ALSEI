@@ -11,3 +11,9 @@ MainDto{0.13,-4.21,-1.81,2.07,1033,73},19:09:29.585115400
 MainDto{0.13,-4.21,-1.81,2.07,1033,73},19:09:29.716118300
 Temperature,Feels Like,Min Temperature,Max Temperature,Pressure,Humidity,TimeofCall
 
+Temperature,Feels Like,Min Temperature,Max Temperature,Pressure,Humidity,TimeofCall
+MainDto{-1.56,-5.89,-3.97,0.19,1033,79},22:50:29.745155900
+MainDto{-1.56,-5.89,-3.97,0.19,1033,79},22:50:40.146117300
+MainDto{-2.62,-5.16,-3.9,0.63,1033,71},22:50:41.280720700
+Temperature,Feels Like,Min Temperature,Max Temperature,Pressure,Humidity,TimeofCall
+MainDto{-1.56,-5.89,-3.97,0.19,1033,79},22:50:42.555118100
