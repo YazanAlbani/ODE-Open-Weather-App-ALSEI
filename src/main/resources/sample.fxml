@@ -1,21 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.collections.FXCollections?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Text?>
-<?import javafx.collections.*?>
 
-
-<?import javafx.scene.control.ChoiceBox?>
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="611.0" prefWidth="848.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.GuiWeatherController">
    <children>
-      <Button fx:id="Set" layoutX="404.0" layoutY="495.0" mnemonicParsing="false" onAction="#setButton" prefHeight="25.0" prefWidth="41.0" text="Set" />
       <Label fx:id="labelToday" layoutX="132.0" layoutY="118.0" prefHeight="17.0" prefWidth="41.0" text="Today" />
-      <Text fx:id="tempText" layoutX="105.0" layoutY="350.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="250.5999755859375" />
+      <Text fx:id="tempText" layoutX="81.0" layoutY="361.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="143.0" />
       <Label fx:id="labelWindSpeed" layoutX="574.0" layoutY="126.0" prefHeight="17.0" prefWidth="73.0" text="Wind Speed:" />
       <Label fx:id="labelHumidity" layoutX="574.0" layoutY="184.0" prefHeight="17.0" prefWidth="73.0" text="Humidity:" />
-      <Label fx:id="labelChanceOfRain" layoutX="569.0" layoutY="239.0" prefHeight="17.0" prefWidth="83.0" text="Chance of Rain:" />
+      <Label fx:id="labelFeelsLike" layoutX="569.0" layoutY="239.0" prefHeight="17.0" prefWidth="83.0" text="Feels like:" />
       <Label fx:id="labelCurrentWeather" layoutX="105.0" layoutY="72.0" prefHeight="17.0" prefWidth="95.0" text="Current Weather" />
       <Label fx:id="labelAdditionalInformation" layoutX="574.0" layoutY="72.0" prefHeight="17.0" prefWidth="143.0" text="Additional Information" />
       <ChoiceBox fx:id="choiceBoxSetCity" layoutX="0" layoutY="0" prefHeight="17.0" prefWidth="100" value="Cities">
@@ -25,5 +23,9 @@
             </FXCollections>
          </items>
       </ChoiceBox>
+      <Text fx:id="windSpeedText" layoutX="652.0" layoutY="139.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="41.0" />
+      <Text fx:id="humidityText" layoutX="652.0" layoutY="197.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="41.0" />
+      <Text fx:id="feelsLikeText" layoutX="652.0" layoutY="252.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="41.0" />
+      <Button fx:id="setButton" layoutX="392.0" layoutY="411.0" mnemonicParsing="false" text="Set" />
    </children>
 </Pane>
