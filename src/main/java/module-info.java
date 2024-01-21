@@ -21,4 +21,6 @@ module ODE.Open.Weather.App.ALSEI.main {
      */
     opens Serialization to com.fasterxml.jackson.databind;
     opens Serialization.DataTranferObjects to com.fasterxml.jackson.databind;
+    opens GUI;
+
 }

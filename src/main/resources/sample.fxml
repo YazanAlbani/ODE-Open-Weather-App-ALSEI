@@ -4,7 +4,10 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Text?>
+<?import javafx.collections.*?>
 
+
+<?import javafx.scene.control.ChoiceBox?>
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="611.0" prefWidth="848.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.GuiWeatherController">
    <children>
       <Button fx:id="Set" layoutX="404.0" layoutY="495.0" mnemonicParsing="false" onAction="#setButton" prefHeight="25.0" prefWidth="41.0" text="Set" />
@@ -15,5 +18,12 @@
       <Label fx:id="labelChanceOfRain" layoutX="569.0" layoutY="239.0" prefHeight="17.0" prefWidth="83.0" text="Chance of Rain:" />
       <Label fx:id="labelCurrentWeather" layoutX="105.0" layoutY="72.0" prefHeight="17.0" prefWidth="95.0" text="Current Weather" />
       <Label fx:id="labelAdditionalInformation" layoutX="574.0" layoutY="72.0" prefHeight="17.0" prefWidth="143.0" text="Additional Information" />
+      <ChoiceBox fx:id="choiceBoxSetCity" layoutX="0" layoutY="0" prefHeight="17.0" prefWidth="100" value="Cities">
+         <items>
+            <FXCollections fx:factory="observableArrayList">
+               <!-- Adding to the Choice Box will be done in the code with  choiceBoxSetCity.getItems().add("Stadt");-->
+            </FXCollections>
+         </items>
+      </ChoiceBox>
    </children>
 </Pane>

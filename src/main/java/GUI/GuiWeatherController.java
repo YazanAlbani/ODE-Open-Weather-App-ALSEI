@@ -12,8 +12,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
+import javafx.scene.control.*;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javax.xml.namespace.QName;
@@ -25,6 +24,9 @@ public class GuiWeatherController {
     WeatherDataDto api;
     @FXML
     public void initialize() {
+
+        initCityDropDown();
+
         System.out.println("second");
         APIgenerateURL generateURL = new APIgenerateURL();
         APICall firstCall = new APICall(generateURL.getURL());
@@ -45,6 +47,19 @@ public class GuiWeatherController {
     public Label labelTempText;
     public Text tempText;
 
+    @FXML
+    public ChoiceBox choiceBoxSetCity;
+
+    public void initCityDropDown() {
+        choiceBoxSetCity.getItems().add("Vienna");
+        choiceBoxSetCity.getItems().add("St Poelten");
+        choiceBoxSetCity.getItems().add("Eisenstadt");
+        choiceBoxSetCity.getItems().add("Linz");
+        choiceBoxSetCity.getItems().add("Graz");
+        choiceBoxSetCity.getItems().add("Salzburg");
+        choiceBoxSetCity.getItems().add("Innsbruck");
+        choiceBoxSetCity.getItems().add("Bregenz");
+    }
     @FXML
     public void setButton(ActionEvent event) {
         tempText.setText(String.valueOf(api.getMain().getTemp()));
