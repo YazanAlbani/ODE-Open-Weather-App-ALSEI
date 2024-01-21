@@ -39,6 +39,8 @@ public class GuiWeatherController {
                 setButton(event);
             }
         });
+
+
         initCityDropDown();
         GUIApiCalls.runAPICall(api, apiURL);
     }
@@ -85,6 +87,7 @@ public class GuiWeatherController {
                 break;
             case "Salzburg":
                 apiURL.setCoordinatesSalzburg();
+                System.out.println(apiURL.getLatitude());
                 break;
             case "Graz":
                 apiURL.setCoordinatesGraz();
@@ -107,6 +110,7 @@ public class GuiWeatherController {
             default:
                 break;
         }
+        apiURL.genereateURL();
     }
     @FXML
     public void setButton(ActionEvent event) {

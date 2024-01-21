@@ -21,6 +21,7 @@ public class APIgenerateURL {
      */
 
     private String weatherURL = "https://api.openweathermap.org/data/2.5/weather?";
+    private String weatherURLBase = "https://api.openweathermap.org/data/2.5/weather?";
     private double latitude = 48.20;
     private double longitude = 16.37;
     private String unitFormat = "metric";
@@ -54,12 +55,20 @@ public class APIgenerateURL {
         weatherURL = "https://api.openweathermap.org/data/2.5/weather?lat=48.20&lon=16.37&appid=7088a0d768cf5ec98b6cd82e32d7b1b2&units=metric";
     }
     public void genereateURL(){
-        weatherURL = weatherURL  + "lat=" + latitude + "&lon=" + longitude +  "&appid=" + apikey + "&units=" + unitFormat;
+        weatherURL = weatherURLBase  + "lat=" + latitude + "&lon=" + longitude +  "&appid=" + apikey + "&units=" + unitFormat;
     }
 
     public String getURL(){
         lastCallForecast = true;
         return weatherURL;
+    }
+
+    public double getLatitude() {
+        return latitude;
+    }
+
+    public double getLongitude() {
+        return longitude;
     }
 
     public void setWeatherURL(String weatherURL) {
