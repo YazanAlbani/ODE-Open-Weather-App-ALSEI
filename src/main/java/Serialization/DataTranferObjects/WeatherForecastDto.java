@@ -56,14 +56,13 @@ public class WeatherForecastDto {
 
     @Override
     public String toString() {
+
         String listString = "";
 
-        ListIterator<WeatherForecastListItemDto> listIterator = list.listIterator();
-
-        while(listIterator.hasNext()) {
-            listString = listString + listIterator.toString();
-            listIterator.next();
+        for(WeatherForecastListItemDto dtoItem : list){
+            listString = listString + dtoItem.toString();
         }
+
 
         return "WeatherForecastDto{" +
                 "cod=" + cod +

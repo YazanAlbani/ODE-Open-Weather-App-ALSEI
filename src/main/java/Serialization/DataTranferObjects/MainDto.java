@@ -108,17 +108,17 @@ public class MainDto {
                 '}';
     }
 
+
     public String toStringAll() {
-        return "MainDto{" +
-                "" + temp +
-                "," + feels_like +
-                "," + temp_min +
-                "," + temp_max +
-                "," + pressure +
-                "," + humidity +
-                "," + sea_level +
-                "," + grnd_level +
-                "," + temp_kf +
+        return  "temp=" + temp +
+                ", feels_like=" + feels_like +
+                ", temp_min=" + temp_min +
+                ", temp_max=" + temp_max +
+                ", pressure=" + pressure +
+                ", humidity=" + humidity +
+                ", sea_level=" + sea_level +
+                ", grnd_level=" + grnd_level +
+                ", temp_kf=" + temp_kf +
                 '}';
     }
 }

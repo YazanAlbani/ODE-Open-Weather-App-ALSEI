@@ -66,4 +66,20 @@ public class SysDto {
     public void setPod(String pod) {
         this.pod = pod;
     }
+
+    @Override
+    public String toString() {
+        return "Sys " +
+                "type=" + type +
+                ", id=" + id +
+                ", country='" + country + '\'' +
+                ", sunrise=" + sunrise +
+                ", sunset=" + sunset +
+                ", pod='" + pod + '\'';
+    }
+
+    public String toStringGUI() {
+        return "";
+    }
+
 }
