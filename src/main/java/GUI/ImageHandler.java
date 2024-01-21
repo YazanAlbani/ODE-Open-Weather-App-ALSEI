@@ -3,14 +3,26 @@ package GUI;
 import Serialization.DataTranferObjects.WeatherDataDto;
 
 public class ImageHandler {
+
+    /**
+     *
+     * @param weatherData Weather data that contain the weather conditions
+     * @return an image URL corresponding to a weather condition, or a default in case nothing is found
+     */
     public static String getImage(WeatherDataDto weatherData) {
         if (weatherData != null && weatherData.getWeather() != null && !weatherData.getWeather().isEmpty()) {
             // Get the icon from the first weather condition
             String icon = weatherData.getWeather().get(0).getIcon();
             return getImageByIconCode(icon);
         }
-        return "images/01d.png";  // Default image if icon is not available
+        return "images/01d.png";
     }
+
+    /**
+     *
+     * @param icon Icon code that relates to specific weather conditions
+     * @return an image URL corresponding to a weather condition, or a default in case nothing is found
+     */
     public static String getImageByIconCode (String icon) {
         switch (icon){
             case "01d":

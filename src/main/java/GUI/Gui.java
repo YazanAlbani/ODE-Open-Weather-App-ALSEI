@@ -16,6 +16,17 @@ import java.util.concurrent.Executors;
 
 public class Gui extends Application {
 
+    /**
+     * entry point for the JavaFX
+     * Init the main stages and load the FXML file
+     * displays the GUI
+     *
+     * @param primaryStage the primary stage for this application, onto which
+     * the application scene can be set.
+     * Applications may create other stages, if needed, but they will not be
+     * primary stages.
+     * @throws IOException If an error occurs
+     */
     @Override
     public void start(Stage primaryStage) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("sample.fxml"));

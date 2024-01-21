@@ -33,6 +33,27 @@ import javafx.scene.image.Image;
 import static javafx.application.Application.launch;
 public class GuiWeatherController {
 
+
+    /**
+     *  Executorservice used to manage and handle the threadpool
+     */
+    ExecutorService threadPool = Executors.newWorkStealingPool();
+
+    /**
+     * The data transfer object for storing weather forecast information.
+     */
+    WeatherForecastDto apiWeatherForecastData = new WeatherForecastDto();
+
+    /**
+     * The data transfer object for storing current weather information.
+     */
+    WeatherDataDto api = new WeatherDataDto();
+
+    /**
+     * The utility class for generating API URLs based on user inputs.
+     */
+    APIgenerateURL apiURL = new APIgenerateURL();
+
     @FXML
     public void initialize() {
         try {
@@ -92,6 +113,9 @@ public class GuiWeatherController {
     }
 
 
+    // FXML elements
+
+
 
     @FXML
     public Button setButtonForecast;
@@ -115,6 +139,7 @@ public class GuiWeatherController {
     APIgenerateURL apiURL = new APIgenerateURL();
 
     private boolean isForecast = false;
+
 
     @FXML
     public Button setButton;
@@ -144,13 +169,17 @@ public class GuiWeatherController {
     public ChoiceBox choiceBoxSetCity;
 
 
+    /**
+     * Initializing the Citydropdown menu with a list of cities and setting
+     * an eventhandler for the city selection
+     */
+
     public void initCityDropDown() {
 
         choiceBoxSetCity.getItems().addAll(
                 "Vienna", "St Poelten", "Eisenstadt", "Linz",
                 "Graz", "Salzburg", "Innsbruck", "Bregenz"
         );
-        // Add an EventHandler for the city selection
         choiceBoxSetCity.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -159,6 +188,12 @@ public class GuiWeatherController {
         });
 
     }
+
+
+    /**
+     * handles the city selection through the switch statement
+     * sets the city based on the coordinates
+     */
 
     public void initCityDropDownForecast() {
 
@@ -175,6 +210,7 @@ public class GuiWeatherController {
         });
 
     }
+
     private void handleCitySelection() {
         String selectedCity = (String) choiceBoxSetCity.getValue();
 
@@ -219,6 +255,12 @@ public class GuiWeatherController {
         apiURL.genereateURL();
     }
 
+
+    /**
+     * setButton gets the weather data from the api and sets them in the GUI as a string
+     * @param event event The ActionEvent triggered by the button click.
+     */
+
     private void handleCitySelectionForecast() {
         String selectedCity = (String) choiceBoxSetCityForecast.getValue();
 
@@ -262,6 +304,7 @@ public class GuiWeatherController {
         }
         apiURL.genereateURL();
     }
+
     @FXML
     public void setButton(ActionEvent event) {
         System.out.println("Button Event started");
