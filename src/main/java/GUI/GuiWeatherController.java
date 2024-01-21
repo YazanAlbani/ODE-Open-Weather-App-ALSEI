@@ -72,7 +72,10 @@ public class GuiWeatherController {
     @FXML
     public ImageView imageView;
 
+    @FXML
+    public TabPane tabPane =  new TabPane();
 
+    //@FXML Tab tab1 = new Tab
     @FXML
     public ChoiceBox choiceBoxSetCity;
 
@@ -143,12 +146,7 @@ public class GuiWeatherController {
 
                 public void run() {
                     api = GUIApiCalls.runAPICall(api, apiURL);
-                    System.out.println(apiURL.getURL());
-                    System.out.println(api.getMain().toString());
-                    tempText.setText(String.valueOf(api.getMain().getTemp()) + "°");
-                    windSpeedText.setText(String.valueOf(api.getWind().getSpeed())+ " kmh");
-                    humidityText.setText(String.valueOf(api.getMain().getHumidity()) + " RH");
-                    feelsLikeText.setText(String.valueOf(api.getMain().getFeels_like()) + "°");
+                    updateBaseGUI(api);
                 }
             });
 
@@ -161,6 +159,12 @@ public class GuiWeatherController {
 
     }
 
+    public void updateBaseGUI(WeatherDataDto api){
+        tempText.setText(String.valueOf(api.getMain().getTemp()) + "°");
+        windSpeedText.setText(String.valueOf(api.getWind().getSpeed())+ " kmh");
+        humidityText.setText(String.valueOf(api.getMain().getHumidity()) + " RH");
+        feelsLikeText.setText(String.valueOf(api.getMain().getFeels_like()) + "°");
+    }
 }
 
 

@@ -27,7 +27,7 @@ public class APIgenerateURL {
     private String unitFormat = "metric";
     private String apikey = "7088a0d768cf5ec98b6cd82e32d7b1b2";
     //URL weatherApiUrl = new URL();
-    private String forecastWeatherURL = "https://api.openweathermap.org/data/2.5/forecast/daily?";
+    private String forecastWeatherURL = "https://api.openweathermap.org/data/2.5/forecast?";
     private int amountForecastDays = 7;
     private boolean lastCallForecast = false;
     /**
