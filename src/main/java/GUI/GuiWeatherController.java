@@ -15,6 +15,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javax.xml.namespace.QName;
@@ -27,8 +28,9 @@ import static javafx.application.Application.launch;
 public class GuiWeatherController {
 
     ExecutorService threadPool = Executors.newWorkStealingPool();
-    WeatherDataDto api = new WeatherDataDto();
+
     WeatherForecastDto apiWeatherForecastData = new WeatherForecastDto();
+    WeatherDataDto api = new WeatherDataDto();
     APIgenerateURL apiURL = new APIgenerateURL();
 
     @FXML
@@ -43,13 +45,32 @@ public class GuiWeatherController {
 
         initCityDropDown();
         GUIApiCalls.runAPICall(api, apiURL);
+
     }
 
     @FXML
     public Button setButton;
     @FXML
-    public Label labelTempText;
     public Text tempText;
+    @FXML
+    public Label labelCurrentWeather;
+    @FXML
+    public Label labelAdditionalInformation;
+    @FXML
+    public Label labelWindSpeed;
+    @FXML
+    public  Text windSpeedText;
+    @FXML
+    public Label labelHumidity;
+    @FXML
+    public  Text humidityText;
+    @FXML
+    public Label labelFeelsLike;
+    @FXML
+    public  Text feelsLikeText;
+    @FXML
+    public ImageView imageView;
+
 
     @FXML
     public ChoiceBox choiceBoxSetCity;
@@ -123,12 +144,16 @@ public class GuiWeatherController {
                     api = GUIApiCalls.runAPICall(api, apiURL);
                     System.out.println(apiURL.getURL());
                     System.out.println(api.getMain().toString());
-                    tempText.setText(String.valueOf(api.getMain().getTemp()));
-                    System.out.println(api.getMain().getTemp());
+                    tempText.setText(String.valueOf(api.getMain().getTemp()) + "°");
+                    windSpeedText.setText(String.valueOf(api.getWind().getSpeed())+ " kmh");
+                    humidityText.setText(String.valueOf(api.getMain().getHumidity()) + " RH");
+                    feelsLikeText.setText(String.valueOf(api.getMain().getFeels_like()) + "°");
                 }
             });
 
-            //labelTempText.setText("Byeeee");
+            System.out.println(api.getMain().toString());
+
+
         }catch(Exception e){
             System.out.println("Error multithread");
             e.printStackTrace();

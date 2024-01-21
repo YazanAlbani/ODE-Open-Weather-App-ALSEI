@@ -6,3 +6,6 @@
     -fx-background-color: #43789A;
     -fx-background-radius: 50;
 }
+.anchor {
+    -fx-background-image:url("images/background.jpg");
+}
