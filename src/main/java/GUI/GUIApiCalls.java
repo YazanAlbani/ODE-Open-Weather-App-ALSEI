@@ -13,7 +13,7 @@ public class GUIApiCalls {
      * @param apiWeatherObjectData Object the json data will be written to
      * @param generateURL          API object with which we start the call -> param because for example lon and lat can be changed from GUI
      */
-    static public void runAPICall(WeatherDataDto apiWeatherObjectData, APIgenerateURL generateURL){
+    static public WeatherDataDto runAPICall(WeatherDataDto apiWeatherObjectData, APIgenerateURL generateURL){
 
         APICall firstCall = new APICall(generateURL.getURL());
         String textFromApi;
@@ -21,9 +21,15 @@ public class GUIApiCalls {
 
         textFromApi = firstCall.getTextReadfromCall();
 
+        System.out.println(textFromApi);
         JSONParser jsonParser = new JSONParser(textFromApi);
 
+
         apiWeatherObjectData = jsonParser.parse();
+        System.out.println();
+        System.out.println("in API Call GUI Class");
+        System.out.println(apiWeatherObjectData.getMain().toString());
+        return apiWeatherObjectData;
     }
 
 
@@ -33,7 +39,7 @@ public class GUIApiCalls {
      * @param generateURL           API object with which we start the call -> param because for example lon and lat can be changed from GUI
      */
 
-    static public void runAPICallForecast(WeatherForecastDto apiWeatherForecastDto, APIgenerateURL generateURL){
+    static public WeatherForecastDto runAPICallForecast(WeatherForecastDto apiWeatherForecastDto, APIgenerateURL generateURL){
 
         APICall firstCall = new APICall(generateURL.getForecastURL());
         String textFromApi;
@@ -43,7 +49,7 @@ public class GUIApiCalls {
 
         JSONParser jsonParser = new JSONParser(textFromApi);
         apiWeatherForecastDto = jsonParser.parseForecast();
-
+        return apiWeatherForecastDto;
 
     }
 }

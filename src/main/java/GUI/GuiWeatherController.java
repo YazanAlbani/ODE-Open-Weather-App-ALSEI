@@ -116,7 +116,9 @@ public class GuiWeatherController {
             threadPool.execute(new Runnable() {
 
                 public void run() {
-                    GUIApiCalls.runAPICall(api, apiURL);
+                    api = GUIApiCalls.runAPICall(api, apiURL);
+                    System.out.println(apiURL.getURL());
+                    System.out.println(api.getMain().toString());
                     tempText.setText(String.valueOf(api.getMain().getTemp()));
                     System.out.println(api.getMain().getTemp());
                 }
